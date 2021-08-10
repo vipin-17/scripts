@@ -12,6 +12,9 @@ do
     echo "User for termination:" $i
     sbterminate $i
     
+    else
+    echo "USER NOT VALID"
+    
     fi
 
 done
