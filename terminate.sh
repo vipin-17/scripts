@@ -13,7 +13,7 @@ do
     sbterminate $i
     
     else
-    echo "USER NOT VALID"
+     echo "USER NOT VALID"
     
     fi
 
