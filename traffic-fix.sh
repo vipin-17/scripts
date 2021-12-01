@@ -2,7 +2,7 @@
 # Script to Adjust Traffic as requested
 
 #Set the Traffic amount first
-read -p "Traffic Amount: `echo $'\n>'`" input
+read -p "Traffic Amount: `echo $`" input
 TRAFFIC_AMNT="'$1'000511627776"
 
 echo "Checked Entered Traffic" $TRAFFIC_AMNT
