@@ -18,7 +18,7 @@ do
     USERN=$(ls /etc/seedbox/user/ | grep "$i")
     if [[ "$USERN" == "$i" ]]; then
     TRAFFIC_FIX $i >/dev/null 2>&1
-    echo "[ADJUSTMENT DONE]:"  $i $TRAFFIC_AMNT >> /root/traffic-adjustment.txt
+    echo "[ADJUSTMENT DONE]:"  $i $TRAFFIC_AMNT | tee -a /root/traffic-adjustment.txt
 
     else
      echo "[USER NOT VALID]:" $i
