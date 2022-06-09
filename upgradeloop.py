@@ -9,7 +9,7 @@ app_list = ['plex', 'radarr', 'sonarr', 'airsonic', 'bazarr', 'btsync', 'emby', 
 #install halo package if it's not there
 def package_install(package):
     subprocess.call(["/usr/bin/pip3", "install", "--user", "-q", "--no-cache-dir", "--disable-pip-version-check", package])
-    os.execv(sys.argv[0], sys.argv) #re-compile code
+    os.execl(sys.executable, sys.executable, *sys.argv) #re-compile code
 
 # App upgrade function
 def app_upgrade():
