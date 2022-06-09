@@ -4,13 +4,12 @@ import subprocess
 from subprocess import check_output, check_call
 
 #list-of-applications
-
 app_list = ['plex', 'radarr', 'sonarr', 'airsonic', 'bazarr', 'btsync', 'emby', 'jackett', 'jdownloader2', 'jellyfin', 'lazylibrarian', 'lidarr', 'mylar3', 'nzbget', 'nzbhydra2', 'ombi', 'overseerr', 'prowlarr', 'pyload', 'readarr', 'requestrr', 'sabnzbd', 'sickchill', 'syncthing', 'tautulli', 'ubooquity', 'thelounge', 'znc']
 
 #install halo package if it's not there
 def package_install(package):
     subprocess.call(["/usr/bin/pip3", "install", "--user", "-q", "--no-cache-dir", "--disable-pip-version-check", package])
-    os.execl(sys.executable, sys.executable, *sys.argv) #re-compile code
+    os.execv(sys.argv[0], sys.argv) #re-compile code
 
 # App upgrade function
 def app_upgrade():
