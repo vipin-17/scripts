@@ -12,4 +12,5 @@ do
         echo "    [ALL GOOD] $ip not assigned to any user!"
     else
         echo "    [NOT GOOD] $ip still assigned to some users!"
+    fi
 done
