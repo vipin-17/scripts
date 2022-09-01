@@ -9,10 +9,10 @@ do
     /etc/seedbox/sbmanager/venv/bin/python /etc/seedbox/sbmanager/manager.py srvinfo | grep $ip
     result=$?
     if [[ "$result" != "0" ]]; then
-        echo "    $ip removed from the pool"
-        echo "        [ALL GOOD] $ip not assigned to any user!"
+        echo "    $ip was removed from the pool"
+        echo "        [ALL GOOD] $ip is not assigned to any user!"
     else
-        echo "    $ip removed from the pool"
-        echo "        [NOT GOOD] $ip still assigned to some users!"
+        echo "    $ip was removed from the pool"
+        echo "        [NOT GOOD] $ip is still assigned to some users!"
     fi
 done
