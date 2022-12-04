@@ -9,12 +9,13 @@ for i in ${input[@]}
 do
     USERN=$(ls /etc/seedbox/user/ | grep "$i")
     if [[ "$USERN" == "$i" ]]; then
-    echo "User for termination:" $i
-    sbterminate $i
+        if [[ id -u "$USERN" ]]; then
+            echo "User for termination:" $i
+            sbterminate $i
     
-    else
-     echo "USER NOT VALID"
-    
+        else
+            echo "USER NOT VALID"
+        fi    
     fi
 
 done
