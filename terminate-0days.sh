@@ -10,8 +10,9 @@ do
     USERN=$(ls /etc/seedbox/user/ | grep "$i")
     if [[ "$USERN" == "$i" ]]; then
         if id -u "$USERN" 2>&1 > /dev/null; then
-            printf "[+] User for termination: $i ...\n\n"
+            printf "[+] User for termination: $i ...\n"
             sbterminate $i
+            printf "\n\n"
         else
             printf "[-] USER NOT VALID !!!\n\n"
         fi
