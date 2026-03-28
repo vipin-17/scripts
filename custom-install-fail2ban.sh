@@ -36,12 +36,15 @@ echo ""
 # =============================================================================
 info "Detecting SSH port..."
 
-SSH_PORT=$(ss -tlnp | grep -oP '(?<=:)\d+(?=\s)' | grep -E '^22$|^[0-9]{4,5}$' | head -1 || true)
+# Primary — filter ss output specifically for sshd process
+SSH_PORT=$(ss -tlnp | grep '"sshd"' | grep -oP '(?<=:)\d+(?= )' | head -1 || true)
 
+# Fallback 1 — read from sshd_config
 if [[ -z "$SSH_PORT" ]]; then
-  SSH_PORT=$(grep -E "^Port " /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -1 || echo "22")
+  SSH_PORT=$(grep -E "^Port " /etc/ssh/sshd_config 2>/dev/null | awk '{print $2}' | head -1 || true)
 fi
 
+# Fallback 2 — hardcode 22 as last resort
 SSH_PORT=${SSH_PORT:-22}
 success "SSH port detected: $SSH_PORT"
 
